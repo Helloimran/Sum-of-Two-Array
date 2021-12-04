@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    int []a = {9, 4, 3};
+    int []b = {4, 3, 9};
+    
+    int size = (a.length >= b.length) ? a.length : b.length;
+    
+    int []ans = new int[size];
+    
+    int i = a.length - 1;
+    int j = b.length -1;
+    int k = ans.length - 1;
+    
+    int c = 0;
+    while(k >= 0 ){
+        int dig=0;
+         dig += c;
+        if(i >= 0){
+            dig += a[i];
+        }
+        if(j >= 0){
+            dig += b[j];
+        }
+        
+        c = dig / 10;
+        ans[k] = dig % 10; 
+        
+        i--;
+        k--;
+        j--;
+    }
+    if (c > 0)
+    System.out.print(c);
+    for(int z = 0; z < ans.length; z++){
+        System.out.print(ans[z]);
+    }
+    
+  }
+}
